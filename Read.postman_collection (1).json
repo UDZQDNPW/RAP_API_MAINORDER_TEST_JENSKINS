@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "e0bf8c1c-0a52-45ff-a590-fc944a8c244a",
+		"name": "Read",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "read customer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"status_200\", function () {\r",
+							"    pm.response.to.have.status(200)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"basic_custonmer_data\", function () {\r",
+							"    const customer = pm.response.json().customer\r",
+							"    pm.expect(customer).to.have.property('id').that.equal('ALFKI')\r",
+							"    pm.expect(customer).to.have.property('companyName').that.equal('Alfreds Futterkiste')\r",
+							"    pm.expect(customer).to.have.property('contactName').that.equal('Maria Anders')\r",
+							"    pm.expect(customer).to.have.property('contactTitle').that.equal('Sales Representative')\r",
+							"    pm.expect(customer).to.have.property('address').that.equal('Obere Str. 57')\r",
+							"\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://northwind.netcore.io/customers/ALFKI?format=json",
+					"protocol": "https",
+					"host": [
+						"northwind",
+						"netcore",
+						"io"
+					],
+					"path": [
+						"customers",
+						"ALFKI"
+					],
+					"query": [
+						{
+							"key": "format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "CustomerAddress",
+			"value": ""
+		}
+	]
+}
