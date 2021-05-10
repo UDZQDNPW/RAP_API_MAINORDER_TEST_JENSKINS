@@ -1,3 +1,6 @@
+pipeline {
+    agent any
+
     stages {
         stage('Run E2E tests') {
             steps {
@@ -5,3 +8,6 @@
             }
         }
     }
+    
+}
+
