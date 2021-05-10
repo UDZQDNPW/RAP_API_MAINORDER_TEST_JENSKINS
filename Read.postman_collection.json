@@ -19,10 +19,10 @@
 							"pm.test(\"basic_custonmer_data\", function () {\r",
 							"    const customer = pm.response.json().customer\r",
 							"    pm.expect(customer).to.have.property('id').that.equal('ALFKI')\r",
-							"    pm.expect(companyName).to.have.property('id').that.equal('Alfreds Futterkiste')\r",
-							"    pm.expect(contactName).to.have.property('id').that.equal('Maria Anders')\r",
-							"    pm.expect(contactTitle).to.have.property('id').that.equal('\"Sales Representative')\r",
-							"    pm.expect(address).to.have.property('id').that.equal('Obere Str. 57')\r",
+							"    pm.expect(customer).to.have.property('companyName').that.equal('Alfreds Futterkiste')\r",
+							"    pm.expect(customer).to.have.property('contactName').that.equal('Maria Anders')\r",
+							"    pm.expect(customer).to.have.property('contactTitle').that.equal('Sales Representative')\r",
+							"    pm.expect(customer).to.have.property('address').that.equal('Obere Str. 57')\r",
 							"\r",
 							"});\r",
 							""
@@ -55,6 +55,32 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "CustomerAddress",
+			"value": ""
 		}
 	]
 }
