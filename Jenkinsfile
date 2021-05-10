@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Run E2E tests') {
             steps {
-            bat 'run.bat'
+            bat 'newman run Read.postman_collection.json --disable-unicode --suppress-exit-code 1'
             }
         }
     }
