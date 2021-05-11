@@ -25,6 +25,16 @@
 							"    pm.expect(customer).to.have.property('address').that.equal('Obere Str. 57')\r",
 							"\r",
 							"});\r",
+							"\r",
+							"pm.globals.set(\"CustomerAddress\", pm.response.json().customer.address );\r",
+							"\r",
+							"pm.test(\"Order has proper ship address\", ( ) => {\r",
+							"    const Order = pm.response.json().orders[0].order\r",
+							"    pm.expect(Order).to.have.property('shipAddress').that.equal( pm.globals.get(\"CustomerAddress\") )\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
 							""
 						],
 						"type": "text/javascript"
